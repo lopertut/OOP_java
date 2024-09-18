@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class EmployeeManage {
     Employee[] employees = new Employee[20];
-    int employee_count = 0;
+    int employeeCount = 0;
     Scanner scanner = new Scanner(System.in);
 
     public void create() {
@@ -57,14 +57,14 @@ public class EmployeeManage {
         Person person = new Person(name, surname, birthyear, birthmonth, birthday, address);
         Employee employee = new Employee(person, appointment, salary);
 
-        employees[employee_count] = employee;
-        employee_count++;
+        employees[employeeCount] = employee;
+        employeeCount++;
     }
 
 
 
     public void list() {
-        if (employee_count <= 0) {
+        if (employeeCount <= 0) {
             System.out.println("No employees to show.");
         } else {
             for (Employee employee: employees) {
@@ -89,8 +89,14 @@ public class EmployeeManage {
     }
 
 
-    public void find_employee(String name, String surname) {
+    public void findEmployee() {
         for (Employee employee : employees) {
+            System.out.print("Enter employee name: ");
+            String name = scanner.next();
+
+            System.out.print("Enter employee surname: ");
+            String surname = scanner.next();
+
             if (employee != null && employee.getPerson().getName().equals(name) && employee.getPerson().getSurname().equals(surname)) {
                 System.out.println("Name: " + employee.getPerson().getName());
                 System.out.println("Surname: " + employee.getPerson().getSurname());
@@ -106,6 +112,92 @@ public class EmployeeManage {
                 System.out.println("Appointment: " + employee.getAppointment());
                 System.out.println("Salary: " + employee.getSalary());
                 System.out.println("  ");
+            }
+        }
+    }
+
+
+    public void editEmployee() {
+        System.out.print("Enter employee name: ");
+        String name = scanner.next();
+
+        System.out.print("Enter employee surname: ");
+        String surname = scanner.next();
+
+        System.out.print("Enter employee changes: ");
+        String changes = scanner.next();
+
+        for (Employee employee : employees) {
+            if (employee != null && employee.getPerson().getName().equals(name) && employee.getPerson().getSurname().equals(surname)) {
+                switch (changes) {
+                    case "name":
+                        System.out.print("Enter new name: ");
+                        String new_name = scanner.next();
+                        employee.getPerson().setName(new_name);
+                        break;
+                    case "surname":
+                        System.out.print("Enter new surname: ");
+                        String new_surname = scanner.next();
+                        employee.getPerson().setName(new_surname);
+                        break;
+                    case "birthyear":
+                        System.out.print("Enter new birthyear: ");
+                        int new_birthyear = scanner.nextInt();
+                        employee.getPerson().setBirthday_year(new_birthyear);
+                        break;
+                    case "birthmonth":
+                        System.out.print("Enter new birthmonth: ");
+                        int new_birthmonth = scanner.nextInt();
+                        employee.getPerson().setBirthday_month(new_birthmonth);
+                        break;
+                    case "birthday":
+                        System.out.print("Enter new birthday: ");
+                        int new_birthday = scanner.nextInt();
+                        employee.getPerson().setBirthday_day(new_birthday);
+                        break;
+                    case "state":
+                        System.out.print("Enter new state: ");
+                        String new_state = scanner.next();
+                        employee.getPerson().getAddress().setState(new_state);
+                        break;
+                    case "city":
+                        System.out.print("Enter new city: ");
+                        String new_city = scanner.next();
+                        employee.getPerson().getAddress().setCity(new_city);
+                        break;
+                    case "street":
+                        System.out.print("Enter new street: ");
+                        String new_street = scanner.next();
+                        employee.getPerson().getAddress().setStreet(new_street);
+                        break;
+                    case "house":
+                        System.out.print("Enter new house: ");
+                        String new_house = scanner.next();
+                        employee.getPerson().getAddress().setHouse(new_house);
+                        break;
+                    case "zip":
+                        System.out.print("Enter new zip: ");
+                        String new_zip = scanner.next();
+                        employee.getPerson().getAddress().setZip(new_zip);
+                        break;
+                    case "room":
+                        System.out.print("Enter new room: ");
+                        String new_room = scanner.next();
+                        employee.getPerson().getAddress().setRoom(new_room);
+                        break;
+                    case "appointment":
+                        System.out.print("Enter new appointment: ");
+                        String new_appointment = scanner.next();
+                        employee.setAppointment(new_appointment);
+                        break;
+                    case "salary":
+                        System.out.print("Enter new salary: ");
+                        String new_salary = scanner.next();
+                        employee.setSalary(new_salary);
+                        break;
+                    default:
+                        System.out.println("Invalid choice");
+                }
             }
         }
     }

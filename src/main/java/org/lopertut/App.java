@@ -34,15 +34,10 @@ public class App {
                     employeeManage.list();
                     break;
                 case 3:
-                    System.out.print("Enter employee name: ");
-                    String name = scanner.next();
-
-                    System.out.print("Enter employee surname: ");
-                    String surname = scanner.next();
-
-                    System.out.println("Searching for employee with name: " + name + " and surname: " + surname);
-                    employeeManage.find_employee(name, surname);
+                    employeeManage.findEmployee();
                     break;
+                case 4:
+                    employeeManage.editEmployee();
                 default:
                     System.out.println("Error, not that number");
                     break;
