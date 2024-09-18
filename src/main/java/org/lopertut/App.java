@@ -109,18 +109,7 @@ public class App {
                     employee_list();
                     break;
                 case 3:
-                    System.out.print("Enter employee name: ");
-                    String name = scanner.nextLine();
-                    scanner.nextLine();
-                    System.out.print("Enter employee surname: ");
-                    String surname = scanner.nextLine();
-
-                    boolean found = false;
-                    for (Employee employee: employees) {
-                        if (employee != null && employee.getPerson().getName().equals(name) && employee.getPerson().getSurname().equals(surname)) {
-                            employee_list();
-                        }
-                    }
+                    break;
                 default:
                     System.out.println("Error, not that number");
                     break;
