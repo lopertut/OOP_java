@@ -62,7 +62,6 @@ public class EmployeeManage {
     }
 
 
-
     public void list() {
         if (employeeCount <= 0) {
             System.out.println("No employees to show.");
@@ -90,28 +89,32 @@ public class EmployeeManage {
 
 
     public void findEmployee() {
-        for (Employee employee : employees) {
+        if (employeeCount <= 0) {
+            System.out.println("No employees to show.");
+        } else {
             System.out.print("Enter employee name: ");
             String name = scanner.next();
 
             System.out.print("Enter employee surname: ");
             String surname = scanner.next();
 
-            if (employee != null && employee.getPerson().getName().equals(name) && employee.getPerson().getSurname().equals(surname)) {
-                System.out.println("Name: " + employee.getPerson().getName());
-                System.out.println("Surname: " + employee.getPerson().getSurname());
-                System.out.println("Birthyear: " + employee.getPerson().getBirthday_year());
-                System.out.println("Birthmonth: " + employee.getPerson().getBirthday_month());
-                System.out.println("Birthday: " + employee.getPerson().getBirthday_day());
-                System.out.println("State: " + employee.getPerson().getAddress().getState());
-                System.out.println("City: " + employee.getPerson().getAddress().getCity());
-                System.out.println("Street: " + employee.getPerson().getAddress().getStreet());
-                System.out.println("House: " + employee.getPerson().getAddress().getHouse());
-                System.out.println("Zip: " + employee.getPerson().getAddress().getZip());
-                System.out.println("Room: " + employee.getPerson().getAddress().getRoom());
-                System.out.println("Appointment: " + employee.getAppointment());
-                System.out.println("Salary: " + employee.getSalary());
-                System.out.println("  ");
+            for (Employee employee : employees) {
+                if (employee != null && employee.getPerson().getName().equals(name) && employee.getPerson().getSurname().equals(surname)) {
+                    System.out.println("Name: " + employee.getPerson().getName());
+                    System.out.println("Surname: " + employee.getPerson().getSurname());
+                    System.out.println("Birthyear: " + employee.getPerson().getBirthday_year());
+                    System.out.println("Birthmonth: " + employee.getPerson().getBirthday_month());
+                    System.out.println("Birthday: " + employee.getPerson().getBirthday_day());
+                    System.out.println("State: " + employee.getPerson().getAddress().getState());
+                    System.out.println("City: " + employee.getPerson().getAddress().getCity());
+                    System.out.println("Street: " + employee.getPerson().getAddress().getStreet());
+                    System.out.println("House: " + employee.getPerson().getAddress().getHouse());
+                    System.out.println("Zip: " + employee.getPerson().getAddress().getZip());
+                    System.out.println("Room: " + employee.getPerson().getAddress().getRoom());
+                    System.out.println("Appointment: " + employee.getAppointment());
+                    System.out.println("Salary: " + employee.getSalary());
+                    System.out.println("  ");
+                }
             }
         }
     }

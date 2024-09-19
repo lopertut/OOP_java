@@ -14,12 +14,13 @@ public class App {
         System.out.println("---------------------");
 
         do {
-            System.out.println("Список задач:");
+            System.out.println("tasks list:");
             System.out.println("0. Exit");
-            System.out.println("1. Добавить работника");
-            System.out.println("2. Список всех работников");
-            System.out.println("3. Работники по имени и фамилии");
-            System.out.print("Выберите задачу: ");
+            System.out.println("1. add employee");
+            System.out.println("2. employee list");
+            System.out.println("3. find employee");
+            System.out.println("4. edit employee data");
+            System.out.print("print task: ");
 
             int choice = scanner.nextInt();
             switch (choice) {
@@ -38,6 +39,7 @@ public class App {
                     break;
                 case 4:
                     employeeManage.editEmployee();
+                    break;
                 default:
                     System.out.println("Error, not that number");
                     break;
